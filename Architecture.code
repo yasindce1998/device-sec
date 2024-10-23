@@ -1,0 +1,22 @@
+flowchart TD
+    subgraph Management Server
+        API[REST API]
+        CommandQueue[Command Queue]
+        DB[(Database)]
+        MessageBroker[Message Broker]
+    end
+
+    subgraph Agent
+        WSClient[WebSocket Client]
+        CommandHandler[Command Handler]
+        Logger[Command Logger]
+    end
+
+    Client[HTTP Client] -->|REST API| API
+    API -->|Store| DB
+    API -->|Publish| MessageBroker
+    MessageBroker -->|Subscribe| CommandQueue
+    CommandQueue -->|WebSocket| WSClient
+    WSClient -->|Process| CommandHandler
+    CommandHandler -->|Log plist| Logger
+    CommandHandler -->|Acknowledge| API

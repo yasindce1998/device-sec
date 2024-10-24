@@ -1,0 +1,18 @@
+# config.yaml
+server:
+  port: ":8080"
+  base_url: "ws://localhost:8080/ws"
+
+database:
+  host: "localhost"
+  port: "5432"
+  user: "postgres"
+  password: "postgres"
+  dbname: "device_management"
+
+rabbitmq:
+  url: "amqp://guest:guest@localhost:5672/"
+
+logging:
+  level: "debug"
+  format: "json"

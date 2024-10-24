@@ -1,7 +1,7 @@
 .PHONY: build test run clean docker-build docker-run
 
 # Build variables
-BINARY_NAME=device-management
+BINARY_NAME=device-sec
 SERVER_BINARY=server
 AGENT_BINARY=agent
 

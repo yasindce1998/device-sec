@@ -3,9 +3,12 @@ package models
 import (
     "time"
     "github.com/google/uuid"
+    "errors"
 )
 
 type CommandStatus string
+
+var ErrCommandNotFound = errors.New("command not found")
 
 const (
     StatusPending CommandStatus = "pending"

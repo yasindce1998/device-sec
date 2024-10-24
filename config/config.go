@@ -2,6 +2,7 @@ package config
 
 import (
     "github.com/spf13/viper"
+    "github.com/device-sec/internal/server/database"
 )
 
 type Config struct {
@@ -9,13 +10,7 @@ type Config struct {
         Port    string `mapstructure:"port"`
         BaseURL string `mapstructure:"base_url"`
     }
-    Database struct {
-        Host     string `mapstructure:"host"`
-        Port     string `mapstructure:"port"`
-        User     string `mapstructure:"user"`
-        Password string `mapstructure:"password"`
-        DBName   string `mapstructure:"dbname"`
-    }
+    Database database.DatabaseConfig
     RabbitMQ struct {
         URL string `mapstructure:"url"`
     }

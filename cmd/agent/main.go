@@ -35,17 +35,19 @@ func main() {
 
     go func() {
         for {
+            // First establish connection
             if err := client.Connect(); err != nil {
                 logger.Println("Connection error:", err)
                 time.Sleep(5 * time.Second)
                 continue
             }
 
+            // Then read messages in a loop
             for {
-                _, message, err := client.conn.ReadMessage()
+                _, message, err := client.ReadMessage()  // Now using client.ReadMessage() directly
                 if err != nil {
                     logger.Println("Read error:", err)
-                    break
+                    break  // Break inner loop to reconnect
                 }
 
                 if err := cmdHandler.HandleCommand(message); err != nil {

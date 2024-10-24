@@ -4,7 +4,10 @@ import (
     "github.com/sirupsen/logrus"
     "os"
 )
-
+type LogConfig struct{
+    Format string
+    Level string
+}
 type Logger struct {
     *logrus.Logger
 }

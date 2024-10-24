@@ -8,7 +8,7 @@ import (
 
 func TestHandleCommand(t *testing.T) {
     logger := setupTestLogger()
-    handler := NewCommandHandler(logger)
+    handler := NewCommandHandler(logger.Logger)
     
     cmd := &models.Command{
         ID:      "test-id",
